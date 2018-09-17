@@ -1,0 +1,7 @@
+{
+  "telephoneTypes": [
+    "CELLPHONE",
+    "COMERCIAL",
+    "RESIDENTIAL"
+  ]
+}

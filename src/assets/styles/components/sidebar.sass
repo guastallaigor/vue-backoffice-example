@@ -1,0 +1,25 @@
+.navigation-drawer.main-sidebar
+  padding-bottom: 0
+  @media screen and (max-width: 1024px)
+    width: 250px !important
+
+  .list
+    .list__tile
+      .list__tile__action
+        width: 42px !important
+        min-width: 42px !important
+
+.active.list__tile--active.list__tile.list__tile--link
+  background: rgba(236, 236, 236, 0.9)
+  color: #F57C00
+
+.active.list__tile--active.list__tile.list__tile--link:before
+  color: #F57C00
+  content: ''
+  position: absolute
+  top: 50%
+  left: 100%
+  width: 12px
+  height: 12px
+  background: #F57C00
+  transform: translate(-50%,-50%) rotate(45deg)

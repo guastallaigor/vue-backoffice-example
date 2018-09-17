@@ -1,29 +1,51 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  v-app#app
+    v-fade-transition(mode="out-in")
+      router-view
+    v-snackbar(
+      :timeout="timeout"
+      :color="color"
+      top
+      right
+      v-model="snackbar"
+      )
+      span {{ msg }}
+      v-btn(dark flat @click.native="closeSnackbar")
+        v-icon close
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+import EventBus from '@/core/event-bus';
+
+export default {
+  data: () => ({
+    snackbar: false,
+    color: '',
+    msg: '',
+    timeout: 6000,
+  }),
+  created() {
+    EventBus.$on('snackbar', ({ active = true, color = 'info', msg = 'Message undefined.' }) => {
+      this.snackbar = active;
+      this.color = color;
+      this.msg = msg;
+    });
+    EventBus.$on('logout', () => {
+      localStorage.clear();
+      this.$router.push('/login');
+    });
+  },
+  beforeDestroy() {
+    EventBus.$off('snackbar');
+    EventBus.$off('logout');
+  },
+  methods: {
+    closeSnackbar() {
+      this.snackbar = false;
+    },
+  },
+  name: 'App',
+};
+</script>
+
+<style lang="sass" src="@/assets/styles/app.sass"></style>
