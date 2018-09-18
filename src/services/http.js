@@ -17,13 +17,12 @@ axiosInstance.interceptors.request.use((config) => {
   return config;
 }, err => Promise.reject(err));
 
-axiosInstance.interceptors.response.use(undefined,
-  (err) => {
-    if (err.response.status === 401) {
-      EventBus.$emit('logout');
-    }
+axiosInstance.interceptors.response.use(undefined, (err) => {
+  if (err.response.status === 401) {
+    EventBus.$emit('logout');
+  }
 
-    return Promise.reject(err);
-  });
+  return Promise.reject(err);
+});
 
 export default axiosInstance;
