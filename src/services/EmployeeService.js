@@ -1,4 +1,4 @@
-import http from './http';
+import http from '@/plugins/axios';
 import Service from './Service';
 
 const api = '/v1/backoffice';

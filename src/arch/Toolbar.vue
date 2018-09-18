@@ -15,7 +15,7 @@
           v-list-tile-action
             v-btn.btn-view-list(icon flat dark)
               v-icon view_list
-        v-list
+        v-list        
           v-list-tile(@click="logout")
             v-list-tile-content.ma-2.ml-3
               v-list-tile-title

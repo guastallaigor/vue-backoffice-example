@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Sidebar from './Sidebar';
-import Toolbar from './Toolbar';
+import Sidebar from './Sidebar.vue';
+import Toolbar from './Toolbar.vue';
 
 export default {
   components: {
