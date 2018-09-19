@@ -1,4 +1,4 @@
-import http from '@/plugins/axios';
+import http from './http';
 
 // const api = 'https://5b27acd162e42b00149156d5.mockapi.io';
 // const api = 'https://5b3d215f95bf8d0014a1d733.mockapi.io';

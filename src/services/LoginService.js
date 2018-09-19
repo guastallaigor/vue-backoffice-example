@@ -1,9 +1,11 @@
-import http from '@/plugins/axios';
+import http from './http';
 
 class LoginService {
-  tokenUser = 'user';
-  api = '/v1/backoffice';
-  tokenKey = 'token';
+  constructor() {
+    this.tokenUser = 'user';
+    this.api = '/v1/backoffice';
+    this.tokenKey = 'token';
+  }
 
   login(payload) {
     return http.post(`${this.api}/login`, payload);

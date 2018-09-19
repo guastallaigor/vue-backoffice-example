@@ -40,18 +40,23 @@ const router = new Router({
   ],
 });
 
-// router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => {
   // const token = LoginService.obterToken();
 
   // if (!token && to.name !== 'login') {
   //   return next('/login');
   // }
-
+  //
   // if (token && (to.name === 'login' || to.fullPath === '/')) {
   //   return next('/employee');
   // }
+  //
+  //
+  if (to.fullPath === '/') {
+    return next('/employee');
+  }
 
-  // return next();
-// });
+  return next();
+});
 
 export default router;

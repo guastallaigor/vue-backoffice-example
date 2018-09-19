@@ -78,7 +78,7 @@ export default {
       return deleted ? 'success' : 'error';
     },
     getBtnText(deleted) {
-      return deleted ? 'Ativar' : 'Inativar';
+      return deleted ? 'Activate' : 'Inactivate';
     },
     statusBtnAction(payload) {
       if (payload.deleted) {
@@ -100,8 +100,8 @@ export default {
 
       serviceMethod
         .then(() => {
-          const msg = active ? 'Ativado' : 'Inativado';
-          this.success(`${msg} com sucesso!`);
+          const msg = active ? 'Activated' : 'Inactivated';
+          this.success(`${msg} successfully!`);
         })
         .catch((error) => {
           const { message } = error.response.data;
