@@ -153,7 +153,7 @@ export default {
     telephoneTypes,
     payload: {
       fullName: '',
-      cpf: '',
+      brCpf: '',
       email: '',
       telephoneType: '',
       telephone: '',

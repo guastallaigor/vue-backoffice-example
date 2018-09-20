@@ -71,7 +71,9 @@ export default {
       if (!this.$refs[this.domain].validate()) return;
       this.loader = true;
       if (this.id) {
-        this.service.edit(this.payload).then(() => {
+        this.service
+          .edit(this.payload)
+          .then(() => {
             this.success('Edited successfully!');
             EventBus.$emit('advance-step');
           })
@@ -82,7 +84,9 @@ export default {
         return;
       }
 
-      this.service.save(this.payload).then(() => {
+      this.service
+        .save(this.payload)
+        .then(() => {
           this.success('Saved successfully!');
           EventBus.$emit('advance-step');
         })
