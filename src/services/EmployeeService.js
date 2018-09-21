@@ -5,15 +5,15 @@ class EmployeeService extends Service {
   constructor() {
     super('employee');
     this.baseUrl = 'employee';
-    this.api = '/v1/backoffice';
+    this.v1 = '/v1/backoffice';
   }
 
-  active(payload) {
-    return http.put(`${this.api}/${this.baseUrl}/active`, payload);
+  active(id) {
+    return http.post(`${this.v1}/${this.baseUrl}/active/${id}`);
   }
 
-  inactive(payload) {
-    return http.put(`${this.api}/${this.baseUrl}/inactive`, payload);
+  inactive(id) {
+    return http.post(`${this.v1}/${this.baseUrl}/inactive/${id}`);
   }
 }
 const employeeService = new EmployeeService();

@@ -23,6 +23,7 @@
                 mask="###.###.###-##"
                 v-model="payload.brCpf"
                 :rules="requiredRules"
+                return-masked-value
                 required
                 )
             v-flex(xs12 md6)

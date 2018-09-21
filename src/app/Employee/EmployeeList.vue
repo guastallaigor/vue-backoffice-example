@@ -1,18 +1,18 @@
 <template lang="pug">
   list(
     :headers="headers"
-    :items="employess"
+    :items="employees"
     )
     template(slot="table-rows" slot-scope="props")
-      td {{ props.item.fullName }}
-      td {{ props.item.brCpf | brCpfMask }}
+      td {{ props.item.full_name }}
+      td {{ props.item.br_cpf | brCpfMask }}
       td {{ props.item.email }}
       td
         v-btn(
-          :color="getBtnColor(props.item.deleted)"
+          :color="getBtnColor(props.item.active)"
           @click.stop.prevent="statusBtnAction(props.item)"
           outline
-          ) {{ getBtnText(props.item.deleted) }}
+          ) {{ getBtnText(props.item.active) }}
 </template>
 
 <script>
@@ -26,20 +26,20 @@ export default {
   },
   data: () => ({
     EmployeeService,
-    employess: [],
+    employees: [],
     headers: [
       {
         text: 'Full name',
         align: 'left',
         sortable: true,
-        value: 'fullName',
+        value: 'full_name',
         width: '40%',
       },
       {
         text: 'Br. Individual Registration',
         align: 'left',
         sortable: false,
-        value: 'brCpf',
+        value: 'br_cpf',
         width: '15%',
       },
       {
@@ -67,53 +67,49 @@ export default {
   mixins: [RequestMixin],
   filters: {
     brCpfMask(cpf) {
-      return `${cpf.substring(0, 3)}.${cpf.substring(3, 6)}.${cpf.substring(6, 9)}-${cpf.substring(9, 12)}`;
+      return cpf;
     },
   },
   created() {
     this.getEmployees();
   },
   methods: {
-    getBtnColor(deleted) {
-      return deleted ? 'success' : 'error';
+    getBtnColor(active) {
+      return active ? 'error' : 'success';
     },
-    getBtnText(deleted) {
-      return deleted ? 'Activate' : 'Inactivate';
+    getBtnText(active) {
+      return active ? 'Inactivate' : 'Activate';
     },
     statusBtnAction(payload) {
-      if (payload.deleted) {
-        this.activeOrInactiveEmployee(payload);
+      if (payload.active) {
+        this.activeOrInactiveEmployee(payload, false);
         return;
       }
 
-      this.activeOrInactiveEmployee(payload, false);
+      this.activeOrInactiveEmployee(payload);
     },
     activeOrInactiveEmployee(payload, active = true) {
-      const params = {
-        entityId: payload.entityId,
-        entityVersion: payload.entityVersion,
-      };
-
       const serviceMethod = active
-        ? EmployeeService.active(params)
-        : EmployeeService.inactive(params);
+        ? EmployeeService.active(payload.id)
+        : EmployeeService.inactive(payload.id);
 
       serviceMethod
         .then(() => {
           const msg = active ? 'Activated' : 'Inactivated';
           this.success(`${msg} successfully!`);
+          this.getEmployees();
         })
         .catch((error) => {
-          const { message } = error.response.data;
-          this.error(message);
+          // this.error(error);
+          console.log(error);
         });
     },
     getEmployees() {
       EmployeeService
         .getList()
         .then(({ data }) => {
-          const { objects } = data;
-          this.employess = objects;
+          console.log('oi');
+          this.employees = data.data;
         });
     },
   },
