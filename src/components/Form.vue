@@ -70,6 +70,7 @@ export default {
     save() {
       if (!this.$refs[this.domain].validate()) return;
       this.loader = true;
+
       if (this.id) {
         this.service
           .edit(this.payload)

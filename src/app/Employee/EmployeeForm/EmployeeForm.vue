@@ -13,7 +13,7 @@
             v-flex(xs12 md6)
               v-text-field(
                 label="Full name"
-                v-model="payload.fullName"
+                v-model="payload.full_name"
                 :rules="requiredRules"
                 required
                 )
@@ -21,7 +21,7 @@
               v-text-field(
                 label="Brazillian Individual Registration"
                 mask="###.###.###-##"
-                v-model="payload.brCpf"
+                v-model="payload.br_cpf"
                 :rules="requiredRules"
                 return-masked-value
                 required
@@ -36,7 +36,7 @@
             v-flex(xs12 md3)
               v-select(
                 label="Telephone type"
-                v-model="payload.telephoneType"
+                v-model="payload.telephone_type"
                 :items="telephoneTypes"
                 :rules="requiredRules"
                 required
@@ -57,7 +57,7 @@
             v-flex(xs12 md4)
               v-text-field(
                 label="Zipcode"
-                v-model="payload.zipCode"
+                v-model="payload.zip_code"
                 mask="#####-###"
                 :rules="requiredRules"
                 required
@@ -153,12 +153,12 @@ export default {
     EmployeeService,
     telephoneTypes,
     payload: {
-      fullName: '',
-      brCpf: '',
+      full_name: '',
+      br_cpf: '',
       email: '',
-      telephoneType: '',
+      telephone_type: '',
       telephone: '',
-      zipCode: '',
+      zip_code: '',
       city: '',
       state: '',
       avenue: '',
@@ -179,7 +179,7 @@ export default {
       v => !!v || 'This field is required',
     ],
   }),
-  mixin: [RouterMixin],
+  mixins: [RouterMixin],
   created() {
     if (this.id) {
       this.getEmployee();

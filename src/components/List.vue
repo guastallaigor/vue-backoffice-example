@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     edit(item) {
-      this.$router.push({ path: `${this.routerEdit}/${item.entityId}`, params: { item } });
+      this.$router.push({ path: `${this.routerEdit}/${item.id}`, params: { item } });
     },
   },
   name: 'List',

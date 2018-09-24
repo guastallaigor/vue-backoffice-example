@@ -96,20 +96,19 @@ export default {
       serviceMethod
         .then(() => {
           const msg = active ? 'Activated' : 'Inactivated';
-          this.success(`${msg} successfully!`);
           this.getEmployees();
+          this.success(`${msg} successfully!`);
         })
         .catch((error) => {
-          // this.error(error);
-          console.log(error);
+          console.log(JSON.stringify(error));
         });
     },
     getEmployees() {
       EmployeeService
         .getList()
         .then(({ data }) => {
-          console.log('oi');
           this.employees = data.data;
+          this.$forceUpdate();
         });
     },
   },
