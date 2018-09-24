@@ -18,7 +18,7 @@
 <script>
 import Page from '@/arch/Page.vue';
 import Service from '@/services/Service';
-import EventBus from '@/core/event-bus';
+import RequestMixin from '@/mixins/request-mixin';
 
 export default {
   components: {
@@ -35,6 +35,7 @@ export default {
   data: () => ({
     loader: false,
   }),
+  mixins: [RequestMixin],
   computed: {
     routerBack() {
       const { meta, params } = this.$route;
@@ -60,13 +61,6 @@ export default {
     },
   },
   methods: {
-    success(msg) {
-      EventBus.$emit('snackbar', { active: true, color: 'success', msg });
-      this.$router.push(this.routerBack);
-    },
-    error(msg) {
-      EventBus.$emit('snackbar', { active: true, color: 'error', msg });
-    },
     save() {
       if (!this.$refs[this.domain].validate()) return;
       this.loader = true;
@@ -76,7 +70,6 @@ export default {
           .edit(this.payload)
           .then(() => {
             this.success('Edited successfully!');
-            EventBus.$emit('advance-step');
           })
           .catch((error) => {
             this.error(error);
@@ -89,11 +82,9 @@ export default {
         .save(this.payload)
         .then(() => {
           this.success('Saved successfully!');
-          EventBus.$emit('advance-step');
         })
         .catch((error) => {
-          const { message } = error.response.data;
-          this.error(message);
+          this.error(error);
         });
       this.loader = false;
     },
