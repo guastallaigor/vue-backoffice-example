@@ -20,7 +20,7 @@
                 v-model="payload.password"
                 :type="passwordFieldType"
                 :append-icon="passwordFieldIcon"
-                :append-icon-cb="togglePasswordVisibility"
+                @click:append="togglePasswordVisibility"
                 :rules="inputPassword"
                 )
               v-btn(
@@ -35,6 +35,7 @@
 <script>
 import LoginService from '@/services/LoginService';
 import RequestMixin from '@/mixins/request-mixin';
+import EventBus from '@/core/event-bus';
 
 export default {
   mixins: [RequestMixin],
@@ -62,14 +63,19 @@ export default {
 
       LoginService
         .login(this.payload)
-        .then((response) => {
+        .then(({ data }) => {
           LoginService.salvarUser(this.payload.login);
-          LoginService.salvarToken(response.headers.authorization);
+          LoginService.salvarToken(data.token);
           this.$router.replace('/employee');
         })
-        .catch((error) => {
-          const { message } = error.response.data;
-          this.error(message);
+        .catch((err) => {
+          const { error } = err.response.data;
+          if (error === 'invalid_credentials') {
+            EventBus.$emit('snackbar', { active: true, color: 'error', msg: 'Invalid credentials' });
+            return;
+          }
+
+          EventBus.$emit('snackbar', { active: true, color: 'error', msg: error });
         });
     },
     togglePasswordVisibility() {

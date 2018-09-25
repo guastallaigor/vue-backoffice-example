@@ -12,7 +12,7 @@ axiosInstance.interceptors.request.use((config) => {
   }
 
   const token = LoginService.obterToken();
-  config.headers.Authorization = token;
+  config.headers.Authorization = `Bearer ${token}`;
 
   return config;
 }, err => Promise.reject(err));
