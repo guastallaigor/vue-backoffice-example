@@ -16,6 +16,7 @@
 .not-found
   margin-top: -5.8rem
   .height-card
+    background: #f3f3f3
     height: calc(100vh - 25rem)
   .status
     font-weight: bold
@@ -48,7 +49,7 @@
       width: 0
       height: 0
       border-style: solid
-      border-color: #e4001a transparent transparent transparent
+      border-color: #035294 transparent transparent transparent
       @media screen and (max-width: 767px)
         border-width: 75px 75px 0 0
       @media screen and (min-width: 768px) and (max-width: 1023px)
