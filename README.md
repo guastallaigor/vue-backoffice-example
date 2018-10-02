@@ -19,6 +19,8 @@
 * [Stylus](http://stylus-lang.com/)
 * [Vuex](https://vuex.vuejs.org/en/)
 * Route modules
+* CRUD examples
+* Authentication
 
 ## Quick start
 
