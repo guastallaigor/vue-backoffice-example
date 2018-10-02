@@ -1,4 +1,4 @@
-# vue-backoffice-example
+# Vue Backoffice Example
 
 ## Project setup
 ```
