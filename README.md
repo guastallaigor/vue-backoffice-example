@@ -36,7 +36,7 @@ Route | Description
 /employee | List of all employees
 /employee-new | Create a new employee
 /employee-edit/:id | Edit a employee, by passing his id
-* | Goes to a not found page
+/* | Goes to a not found page
 
 ## Development
 
