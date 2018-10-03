@@ -8,6 +8,7 @@
 </p>
 
 [![Code Style](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f919839a11263434d011/maintainability)](https://codeclimate.com/github/guastallaigor/vue-backoffice-example/maintainability)
 
 > **Note:** This project is ment to be used with the [Laravel Backoffice Example](https://github.com/guastallaigor/laravel-backoffice-example).
 > It has all the functionalities that is used with this project.
