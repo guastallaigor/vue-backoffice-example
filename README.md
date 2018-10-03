@@ -30,6 +30,8 @@ This is very simple. Just add every new module inside the app folder. Note that 
 
 Example for the "Route modules": For the Example module folder, it has the `ExampleRouter.js`. Note that without the "Router" sufix, the routing system would not work properly.
 
+By default it runs on `localhost:8080`.
+
 ## Routes Information Table
 
 Route | Description
@@ -39,10 +41,6 @@ Route | Description
 /employee-new | Create a new employee
 /employee-edit/:id | Edit a employee, by passing his id
 /* | Goes to a not found page
-
-## Development
-
-By default it runs on `port:8080`.
 
 ## TODO
 
