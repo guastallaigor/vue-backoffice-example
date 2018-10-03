@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./src/assets/logo-icon.png" width="200px">
+  <img src="./src/assets/logo-icon-vue.png" width="200px">
   <h1>Vue Backoffice Example</h1>
 </div>
 

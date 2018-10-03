@@ -7,7 +7,7 @@
     )
     v-layout.mt-3(column align-center justify-center)
       img(
-        src="@/assets/logo-icon.png"
+        src="@/assets/logo-icon-vue.png"
         height="130"
         )
     v-list.transparent

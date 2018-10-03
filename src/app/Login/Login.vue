@@ -3,7 +3,7 @@
     v-layout(column wrap align-center justify-center)
       v-flex.fundo-login(xs12)
       v-flex.login-position(xs12)
-        img.logo-login(src="@/assets/logo-icon.png")
+        img.logo-login(src="@/assets/logo-icon-vue.png")
         .rest.text-xs-center
           .headline.grey--text.text--darken-1 Vue Backoffice Example
           v-card.mt-2.login-card
