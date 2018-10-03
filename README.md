@@ -17,7 +17,6 @@
 * [Vuetify](https://vuetifyjs.com/)
 * [Pug](https://pugjs.org/api/getting-started.html)
 * [Sass](https://sass-lang.com/)
-* [Vuex](https://vuex.vuejs.org/en/)
 * Route modules
 * CRUD examples
 * Authentication
