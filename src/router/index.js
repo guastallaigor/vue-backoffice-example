@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Layout from '@/arch/Layout.vue';
 import Login from '@/app/Login/Login.vue';
-// import LoginService from '@/services/LoginService';
+import LoginService from '@/services/LoginService';
 
 import routes from './routes';
 
