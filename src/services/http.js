@@ -3,7 +3,7 @@ import EventBus from '@/core/event-bus';
 import LoginService from './LoginService';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://frozen-brook-96679.herokuapp.com/api',
+  baseURL: 'https://laravel-backoffice-example.herokuapp.com/api',
 });
 
 axiosInstance.interceptors.request.use((config) => {
