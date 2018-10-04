@@ -6,7 +6,7 @@ module.exports = {
     },
     proxy: {
       '/api/v1/backoffice': {
-        target: 'http://localhost:3000',
+        target: 'https://frozen-brook-96679.herokuapp.com',
         ws: true,
         changeOrigin: true
       }
