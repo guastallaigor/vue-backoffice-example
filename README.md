@@ -42,6 +42,10 @@ Route | Description
 /employee-edit/:id | Edit a employee, by passing his id
 /* | Goes to a not found page
 
+## Demo
+
+Want to see it running? You can check it out at https://vue-backoffice-example.herokuapp.com
+
 ## TODO
 
 * [ ] Add E2E tests.
