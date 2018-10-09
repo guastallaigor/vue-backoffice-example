@@ -8,13 +8,13 @@
           .headline.grey--text.text--darken-1 Vue Backoffice Example
           v-card.mt-2.login-card
             v-card-text
-              v-text-field(
+              v-text-field#email(
                 required
                 label="E-mail"
                 v-model="payload.login"
                 :rules="inputEmail"
                 )
-              v-text-field(
+              v-text-field#password(
                 required
                 label="Password"
                 v-model="payload.password"
@@ -70,8 +70,14 @@ export default {
         })
         .catch((err) => {
           const { error } = err.response.data;
+
           if (error === 'invalid_credentials') {
             EventBus.$emit('snackbar', { active: true, color: 'error', msg: 'Invalid credentials' });
+            return;
+          }
+
+          if (error === 'inactive') {
+            EventBus.$emit('snackbar', { active: true, color: 'error', msg: 'Inactive user' });
             return;
           }
 
