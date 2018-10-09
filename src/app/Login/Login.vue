@@ -70,8 +70,14 @@ export default {
         })
         .catch((err) => {
           const { error } = err.response.data;
+
           if (error === 'invalid_credentials') {
             EventBus.$emit('snackbar', { active: true, color: 'error', msg: 'Invalid credentials' });
+            return;
+          }
+
+          if (error === 'inactive') {
+            EventBus.$emit('snackbar', { active: true, color: 'error', msg: 'Inactive user' });
             return;
           }
 

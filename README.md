@@ -11,7 +11,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f919839a11263434d011/maintainability)](https://codeclimate.com/github/guastallaigor/vue-backoffice-example/maintainability)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg)](https://cypress.io)
 
-> **Note:** This project is ment to be used with the [Laravel Backoffice Example](https://github.com/guastallaigor/laravel-backoffice-example).
+> **Note:** This project is ment to be used with [Laravel Backoffice Example](https://github.com/guastallaigor/laravel-backoffice-example).
 > It has all the functionalities that is used with this project.
 
 ## Features
